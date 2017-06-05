@@ -4,8 +4,8 @@ from app import game
 
 
 class GameTest(unittest.TestCase):
-    def test_record_roll__with_new_game_and_cero_num_pins_knocked__game_get_score_return_cero(self):
-        # Assert
+    def test_get_score__for_new_game_and_cero_num_pins_knocked__game_get_score_return_cero(self):
+        # Arrange
         bowling_game = game.Game()
         # Act
         bowling_game.record_roll(num_pins_knocked=0)
@@ -13,8 +13,8 @@ class GameTest(unittest.TestCase):
         # Assert
         self.assertEqual(first=0, second=result)
 
-    def test_record_roll__with_new_game_and_5_pins_knocked__game_get_score_return_cero(self):
-        # Assert
+    def test_get_score__for_new_game_and_5_pins_knocked__game_get_score_return_cero(self):
+        # Arrange
         bowling_game = game.Game()
         # Act
         bowling_game.record_roll(num_pins_knocked=5)
@@ -22,8 +22,8 @@ class GameTest(unittest.TestCase):
         # Assert
         self.assertEqual(first=0, second=result)
 
-    def test_record_roll__5_pins_knocked_after_0_pins_knocked__game_get_score_return_5(self):
-        # Assert
+    def test_get_score__after_5_pins_knocked_and_0_pins_knocked__game_get_score_return_5(self):
+        # Arrange
         bowling_game = game.Game()
         bowling_game.record_roll(num_pins_knocked=0)
         # Act
@@ -32,8 +32,8 @@ class GameTest(unittest.TestCase):
         # Assert
         self.assertEqual(first=5, second=result)
 
-    def test_record_roll__5_pins_knocked_after_3_completed_sets_with_4_4_6_1_0_5__game_get_score_return_20(self):
-        # Assert
+    def test_get_score__after_5_pins_knocked_and_3_completed_sets_with_4_4_6_1_0_5__game_get_score_return_20(self):
+        # Arrange
         bowling_game = game.Game()
         bowling_game.record_roll(num_pins_knocked=4)
         bowling_game.record_roll(num_pins_knocked=4)
@@ -47,8 +47,8 @@ class GameTest(unittest.TestCase):
         # Assert
         self.assertEqual(first=20, second=result)
 
-    def test_record_roll__5_pins_knocked_after_spare__game_get_score_return_15(self):
-        # Assert
+    def test_get_score__after_5_pins_knocked_and_spare__game_get_score_return_15(self):
+        # Arrange
         bowling_game = game.Game()
         bowling_game.record_roll(num_pins_knocked=0)
         bowling_game.record_roll(num_pins_knocked=10)
@@ -58,8 +58,8 @@ class GameTest(unittest.TestCase):
         # Assert
         self.assertEqual(first=15, second=result)
 
-    def test_record_roll__5_pins_knocked_after_two_consecutive_spares_0_10__game_get_score_return_25(self):
-        # Assert
+    def test_get_score__after_5_pins_knocked_and_two_consecutive_spares_0_10__game_get_score_return_25(self):
+        # Arrange
         bowling_game = game.Game()
         bowling_game.record_roll(num_pins_knocked=0)
         bowling_game.record_roll(num_pins_knocked=10)

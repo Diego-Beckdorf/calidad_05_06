@@ -46,3 +46,14 @@ class GameTest(unittest.TestCase):
         result = bowling_game.get_score()
         # Assert
         self.assertEqual(first=20, second=result)
+
+    def test_record_roll__5_pins_knocked_after_spare__game_get_score_return_15(self):
+        # Assert
+        bowling_game = game.Game()
+        bowling_game.record_roll(num_pins_knocked=0)
+        bowling_game.record_roll(num_pins_knocked=10)
+        # Act
+        bowling_game.record_roll(num_pins_knocked=5)
+        result = bowling_game.get_score()
+        # Assert
+        self.assertEqual(first=15, second=result)
